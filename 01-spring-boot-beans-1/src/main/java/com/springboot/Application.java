@@ -15,9 +15,9 @@ public class Application{
 		SpringApplication.run(Application.class, args);
 	}
 
-	
-	//try to first learn this after move AppConfig file. 
-	//here extra code remove and pass in AppConfig file.
+	//1. Implements CommandLineRunner Interface after do First way 
+	//2. try to first learn this after move AppConfig file. 
+	//3. here extra code remove and pass in AppConfig file.
 	
 	/*
 	 * @Override public void run(String... args) throws Exception { //call using
