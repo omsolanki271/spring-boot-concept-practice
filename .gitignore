@@ -1,0 +1,46 @@
+# =========================
+# Maven build output
+# =========================
+target/
+!.mvn/wrapper/maven-wrapper.properties
+
+# =========================
+# Eclipse / STS
+# =========================
+.metadata/
+.classpath
+.project
+.settings/
+.springBeans
+.sts4-cache/
+
+# =========================
+# IntelliJ / VS Code
+# =========================
+.idea/
+*.iml
+.vscode/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Temporary files
+# =========================
+*.tmp
+*.swp
+*~
+
+# =========================
+# Environment files
+# =========================
+.env
+*.env
