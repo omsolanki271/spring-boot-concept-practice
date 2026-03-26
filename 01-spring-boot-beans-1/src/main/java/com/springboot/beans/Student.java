@@ -3,9 +3,9 @@ package com.springboot.beans;
 public class Student {
 	private String name;
 	private int rollno;
-	private int marks;
+	private float marks;
 
-	public Student(String name, int rollno,int marks)
+	public Student(String name, int rollno,float marks)
 	{
 		this.name = name;
 		this.rollno = rollno;
@@ -28,11 +28,11 @@ public class Student {
 		this.rollno = rollno;
 	}
 
-	public int getMarks() {
+	public float getMarks() {
 		return marks;
 	}
 
-	public void setMarks(int marks) {
+	public void setMarks(float marks) {
 		this.marks = marks;
 	}
 	
