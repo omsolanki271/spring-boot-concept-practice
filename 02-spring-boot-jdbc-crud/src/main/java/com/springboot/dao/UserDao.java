@@ -4,4 +4,5 @@ import com.springboot.entity.User;
 
 public interface UserDao {
 	public boolean insert(User user);
+	public boolean updateUser(User user);
 }
