@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import com.springboot.beans.Student;
 
 @Configuration
-public class AppcConfig {
+public class AppConfig {
 
 	// Second way to here CommnadLineRunner Inteface Use nad implements
 
