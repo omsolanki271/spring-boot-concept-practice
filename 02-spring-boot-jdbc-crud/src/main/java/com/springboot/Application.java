@@ -30,13 +30,22 @@ public class Application implements CommandLineRunner {
 		 * System.out.println("Data not inserted ...!"); }
 		 */
 
-		User user = new User("Solanki Om", "om@gmail.com", "M", "Dwarka");
-		boolean status = dao.updateUser(user);
+		/*
+		 * User user = new User("Solanki Om", "om@gmail.com", "M", "Dwarka"); boolean
+		 * status = dao.updateUser(user);
+		 * 
+		 * if (status) { System.out.println("Data update Successfully....!"); } else {
+		 * System.out.println("Data not update ...!"); }
+		 */		
+		
+		User user = new User();
+		user.setEmail("j@gmail.com");
+		boolean status = dao.deleteUser(user);
 
 		if (status) {
-			System.out.println("Data update Successfully....!");
+			System.out.println("Data delete Successfully....!");
 		} else {
-			System.out.println("Data not update ...!");
+			System.out.println("Data not d ...!");
 		}
 
 	}

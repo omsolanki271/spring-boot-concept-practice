@@ -6,6 +6,18 @@ public class User {
 	private String gender;
 	private String city;
 
+	
+	
+	
+	public User() {
+		super();
+	}
+
+	public User(String email) {
+		super();
+		this.email = email;
+	}
+
 	public User(String name, String email, String gender, String city) {
 		super();
 		this.name = name;

@@ -56,5 +56,29 @@ public class UserDaoImpl implements UserDao{
 		
 		return status;
 	}
+
+	@Override
+	public boolean deleteUser(User user) {
+		boolean status = false;
+
+		try {
+			String sql = "delete from users where email = ? ";
+			int update = this.jdbcTemplate.update(sql, user.getEmail());
+
+			if(update > 0)
+			{
+				status = true;
+			}
+			else
+			{
+				status = false;
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return status;
+	}
 	
 }
