@@ -1,13 +1,27 @@
 package com.hibernet.main;
 
-/**
- * Hello world!
- *
- */
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+
+import org.hibernate.cfg.Configuration;
+
+import com.hibernet.entity.User;
+
 public class App 
 {
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+    	
+    	
+        Configuration configuration = new Configuration();
+        configuration.configure("hibernate.cfg.xml");
+        
+        SessionFactory sessionFactory = configuration.buildSessionFactory();
+        Session session = sessionFactory.openSession();
+        Transaction transaction = session.beginTransaction();
+        
+        
     }
 }

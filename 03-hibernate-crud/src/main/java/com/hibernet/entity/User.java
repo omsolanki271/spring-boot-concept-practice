@@ -1,4 +1,4 @@
-package com.hibernet.entities;
+package com.hibernet.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
