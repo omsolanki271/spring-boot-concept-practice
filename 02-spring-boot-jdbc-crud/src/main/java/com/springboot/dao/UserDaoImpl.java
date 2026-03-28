@@ -1,6 +1,6 @@
 package com.springboot.dao;
 
-import com.springboot.Application;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -14,6 +14,8 @@ public class UserDaoImpl implements UserDao{
 	private JdbcTemplate jdbcTemplate;
 
 
+	/* insert oepration */
+	
 	@Override
 	public boolean insert(User user) {
 		boolean status = false;
@@ -33,6 +35,7 @@ public class UserDaoImpl implements UserDao{
 		return status;
 	}
 
+	/* update operation */
 	@Override
 	public boolean updateUser(User user) {
 		boolean status = false;
@@ -57,6 +60,9 @@ public class UserDaoImpl implements UserDao{
 		return status;
 	}
 
+	
+	/* delete operation */
+	/* way 1 */
 	@Override
 	public boolean deleteUser(User user) {
 		boolean status = false;
@@ -77,6 +83,31 @@ public class UserDaoImpl implements UserDao{
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		return status;
+	}
+
+	/* way 2 */
+	
+	@Override
+	public boolean deleteUser2(String email) {
+		
+		boolean status = false; 
+		try {
+			String sql = "delete from users where email = ?";
+			int update = this.jdbcTemplate.update(sql, email);
+			if(update > 0)
+			{
+				status = true;
+			}
+			else
+			{
+				status = false;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
 		
 		return status;
 	}
