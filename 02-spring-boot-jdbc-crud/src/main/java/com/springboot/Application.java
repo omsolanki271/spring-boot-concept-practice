@@ -40,14 +40,31 @@ public class Application implements CommandLineRunner {
 			System.out.println("**************************");
 			System.out.println("Enter your Choice");
 			int op = sc.nextInt();
-
+			sc.nextLine();
 			User user;
 			boolean status;
 			switch (op) {
 			case 1:
+
+				/* static data input*/ 
 				// User user = new User("Solanki Om", "om@gmail.com", "M", "Bhanvad");
 
-				user = new User("John", "j@gmail.com", "M", "Jmc");
+				//user = new User("John", "j@gmail.com", "M", "Jmc");
+				
+				/* dynamic input */
+				
+				user = new User();
+
+				//set value using setter injection 
+				System.out.println("Enter Your name");
+				user.setName(sc.nextLine());
+				System.out.println("Enter Your email");
+				user.setEmail(sc.nextLine()); 
+				System.out.println("Enter Your gender");
+				user.setGender(sc.nextLine());
+				System.out.println("Enter Your city");
+				user.setCity(sc.nextLine());
+				
 				status = dao.insert(user);
 
 				if (status) {
@@ -59,7 +76,18 @@ public class Application implements CommandLineRunner {
 
 			case 2:
 
-				user = new User("Solanki Om", "om@gmail.com", "M", "Dwarka");
+				user = new User();
+				
+				System.out.println("Update data Base on email");
+				user.setEmail(sc.nextLine()); 
+				
+				System.out.println("Enter Your name");
+				user.setName(sc.nextLine());
+				System.out.println("Enter Your gender");
+				user.setGender(sc.nextLine());
+				System.out.println("Enter Your city");
+				user.setCity(sc.nextLine());
+				
 				status = dao.updateUser(user);
 
 				if (status) {
@@ -74,7 +102,10 @@ public class Application implements CommandLineRunner {
 				// Delete using User object
 
 				user = new User();
-				user.setEmail("j@gmail.com");
+				
+				System.out.println("Delete data Base on email");
+				user.setEmail(sc.nextLine());
+				
 				status = dao.deleteUser(user);
 
 				if (status) {
@@ -86,7 +117,7 @@ public class Application implements CommandLineRunner {
 			case 4:
 				// Second way to 
 				// Delete using email directly
-				sc.nextLine();
+				
 				System.out.println("Enter Email to deleted..!");
 				String email = sc.nextLine();
 				status = dao.deleteUser2(email);
