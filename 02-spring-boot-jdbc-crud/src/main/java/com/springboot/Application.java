@@ -30,7 +30,6 @@ public class Application implements CommandLineRunner {
 		
 		while (true) {
 			
-			
 			System.out.println("\n*************************");
 			System.out.println("=====--|| MENU ||---=====");
 			System.out.println("*************************");
@@ -183,7 +182,10 @@ public class Application implements CommandLineRunner {
 				{
 					for(User u : allUser)
 					{
+						 
 						printUser(u);
+						// if we use this type we need to toString method in User Class
+						System.out.println(u);
 					}	
 				}
 				

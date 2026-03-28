@@ -7,7 +7,10 @@ public class User {
 	private String city;
 
 	
-	
+	@Override
+	public String toString() {
+		return "User [name=" + name + ", email=" + email + ", gender=" + gender + ", city=" + city + "]";
+	}
 
 	public User() {
 		super();
