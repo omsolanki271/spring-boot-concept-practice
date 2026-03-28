@@ -11,7 +11,7 @@ import com.hibernet.entity.User;
 public class App {
 	public static void main(String[] args) {
 		User user = new User();
-		user.setId(1);
+		//user.setId(1);
 		user.setName("om");
 		user.setEmail("om@gmail.com");
 		user.setPassword("123");
