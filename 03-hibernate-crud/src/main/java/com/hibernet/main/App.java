@@ -25,14 +25,31 @@ public class App {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 
+		
+		// Insert opeation 
+		
+		/*
+		 * try { session.save(user); transaction.commit();
+		 * System.out.println("Data inserted...!"); } catch (Exception e) {
+		 * transaction.rollback(); e.printStackTrace();
+		 * System.out.println("Data not inserted...Due to Some Error!"); }
+		 */
+
+		//select opeartion 
+
 		try 
 		{
-			session.save(user);
-			transaction.commit();
+			User user2 = session.get(User.class, 1L);
+			System.out.println(user2.getId());
+			System.out.println(user2.getName());
+			System.out.println(user2.getCity());
+			System.out.println(user2.getGender());
+			System.out.println(user2.getEmail());
+			System.out.println(user2.getPassword());			
+			
 		} 
 		catch (Exception e) 
 		{
-			transaction.rollback();
 			e.printStackTrace();
 		}
 
