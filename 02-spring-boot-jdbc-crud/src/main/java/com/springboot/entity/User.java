@@ -7,6 +7,8 @@ public class User {
 	private String city;
 
 	
+	
+
 	public User() {
 		super();
 	}

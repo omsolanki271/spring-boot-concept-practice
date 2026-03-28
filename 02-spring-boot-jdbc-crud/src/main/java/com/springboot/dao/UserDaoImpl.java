@@ -1,8 +1,13 @@
 package com.springboot.dao;
 
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import com.springboot.entity.User;
@@ -110,6 +115,66 @@ public class UserDaoImpl implements UserDao{
 		
 		
 		return status;
+	}
+
+	@Override
+	public User getOneUser(String email) {
+		User queryForObject = null; 
+		try 
+		{
+			String sql = "select * from users where email = ?";
+			queryForObject = this.jdbcTemplate.queryForObject(sql,new RowMapperImp1(), email);
+		}
+		catch (Exception e) 
+		{
+			e.printStackTrace();
+			System.out.println("Email is not Found");
+			queryForObject = null;
+		}
+		return queryForObject;
+	}
+	
+	public static final class  RowMapperImp1 implements RowMapper<User>
+	{
+
+		@Override
+		public User mapRow(ResultSet rs, int rowNum) throws SQLException {
+			User user = new User();
+			user.setName(rs.getString("name"));
+			user.setEmail(rs.getString("email"));
+			user.setGender(rs.getString("gender"));
+			user.setCity(rs.getString("city"));
+			return user;
+		}
+		
+	}
+
+	@Override
+	public User getOneUser1(String email) {
+		
+		User queryForObject = null;
+		String sql = "select * from users where email = ?";
+		queryForObject = this.jdbcTemplate.queryForObject(sql, new RowMapper<User>(){
+			@Override
+			public User mapRow(ResultSet rs, int rowNum) throws SQLException 
+			{
+				User user = new User();
+				user.setName(rs.getString("name"));
+				user.setEmail(rs.getString("email"));
+				user.setGender(rs.getString("gender"));
+				user.setCity(rs.getString("city"));
+				return user;
+			}
+		}, email);
+		
+		return queryForObject;
+	}
+
+	@Override
+	public List<User> getAllUser() {
+		String sql = "select * from users";
+		List<User> list = this.jdbcTemplate.query(sql, new RowMapperImp());
+		return list;
 	}
 	
 }

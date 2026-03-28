@@ -1,5 +1,6 @@
 package com.springboot;
 
+import java.util.List;
 import java.util.Scanner;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.springboot.dao.UserDao;
 import com.springboot.entity.User;
+
+import ch.qos.logback.core.recovery.ResilientSyslogOutputStream;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
@@ -28,21 +31,26 @@ public class Application implements CommandLineRunner {
 		while (true) {
 			
 			
+			System.out.println("\n*************************");
+			System.out.println("=====--|| MENU ||---=====");
 			System.out.println("*************************");
-			System.out.println("=====--|| Menu ||---=====");
-			System.out.println("**************************");
-			System.out.println("Selete CRUD opeartion opeation");
-			System.out.println(" 1.Insert");
-			System.out.println(" 2.Update");
-			System.out.println(" 3.Delete way 1 ");
-			System.out.println(" 4.Delete Way 2 ");
-			System.out.println(" 5.exit ");
-			System.out.println("**************************");
-			System.out.println("Enter your Choice");
+			System.out.println("Select CRUD Operation");
+			System.out.println("1. Insert");
+			System.out.println("2. Update");
+			System.out.println("3. Delete (User Object by Email)");
+			System.out.println("4. Delete (By Email)");
+			System.out.println("5. Get One User (RowMapper Class)");
+			System.out.println("6. Get One User (Anonymous RowMapper)");
+			System.out.println("7. Get All User ");
+			System.out.println("8. Exit");
+			System.out.println("*************************");
+			System.out.print("Enter your choice: ");
 			int op = sc.nextInt();
 			sc.nextLine();
+			
 			User user;
 			boolean status;
+			
 			switch (op) {
 			case 1:
 
@@ -128,6 +136,59 @@ public class Application implements CommandLineRunner {
 				}
 				break;
 			case 5:
+				System.out.print("Enter Email to Search: ");
+				String email1 = sc.nextLine();
+				user = dao.getOneUser(email1);
+				if(user != null)
+				{
+					System.out.println("----------------------");
+					/*
+					 * System.out.println(user.getName()); System.out.println(user.getEmail());
+					 * System.out.println(user.getGender()); System.out.println(user.getCity());
+					 */
+					printUser(user);
+					System.out.println("----------------------");
+				}
+				else
+				{
+					System.out.println("Please Enter valid Email");
+				}
+				break;
+			case 6:
+				System.out.print("Enter Email to Search: ");
+				String email2 = sc.nextLine();
+				user = dao.getOneUser1(email2);
+				if(user != null)
+				{
+					System.out.println("----------------------");
+					/*
+					 * System.out.println(user.getName()); System.out.println(user.getEmail());
+					 * System.out.println(user.getGender()); System.out.println(user.getCity());
+					 */
+					printUser(user);
+					System.out.println("----------------------");
+				}
+				else
+				{
+					System.out.println("Please Enter valid Email");
+				}
+				break;
+			case 7:
+				List<User> allUser = dao.getAllUser();
+				if(allUser.isEmpty())
+				{
+					System.out.println("No studernt found..!");
+				}
+				else
+				{
+					for(User u : allUser)
+					{
+						printUser(u);
+					}	
+				}
+				
+				break;
+			case 8:
 				System.out.println("Application exited successfully...");
 				sc.close();
 				return;
@@ -138,5 +199,13 @@ public class Application implements CommandLineRunner {
 
 		}
 	}
-
+	
+	private void printUser(User user) {
+		System.out.println("----------------------");
+		System.out.println("Name   : " + user.getName());
+		System.out.println("Email  : " + user.getEmail());
+		System.out.println("Gender : " + user.getGender());
+		System.out.println("City   : " + user.getCity());
+		System.out.println("----------------------");
+	}
 }
