@@ -7,7 +7,7 @@ Demonstrates basic **CRUD operations** without JPA/Hibernate.
 ---
 
 ## 🎯 Features
-- Insert, Update, Delete, Select One, Select All  
+- Insert, Update, Delete (two ways), Select One, Select All  
 - DAO Layer with Interface + Implementation  
 - RowMapper (custom + anonymous)  
 - Menu-driven console input with dynamic user data  
@@ -27,11 +27,11 @@ Demonstrates basic **CRUD operations** without JPA/Hibernate.
 ```
 src/main/java/com/springboot
 │
-├── Application.java
-├── entity/User.java
-├── dao/UserDao.java
-├── dao/UserDaoImpl.java
-├── dao/RowMapperImp.java
+├── Application.java        # Main class with menu-driven console
+├── entity/User.java        # Entity class
+├── dao/UserDao.java        # DAO interface
+├── dao/UserDaoImpl.java    # DAO implementation
+├── dao/RowMapperImp.java   # Custom RowMapper
 └── resources/application.properties
 ```
 
@@ -39,6 +39,7 @@ src/main/java/com/springboot
 
 ## ⚙️ application.properties
 ```properties
+spring.application.name=02-spring-boot-jdbc-crud
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.datasource.url=jdbc:mysql://localhost:3307/springboot_jdbc
 spring.datasource.username=root
@@ -71,6 +72,14 @@ CREATE TABLE users(
 
 ---
 
+## 🔖 Annotations Used
+- `@SpringBootApplication` → Marks main class, enables auto-configuration  
+- `@Autowired` → Injects `UserDao` and `JdbcTemplate`  
+- `@Repository` → Marks DAO implementation class  
+- `@Override` → Used for implementing interface methods  
+
+---
+
 ## 🎯 Key Concepts
 - `JdbcTemplate` for SQL queries  
 - DAO pattern for separation of logic  
@@ -82,4 +91,3 @@ CREATE TABLE users(
 ## 👨‍💻 Author
 **Om Solanki**  
 *MCA Student | Java Backend Learner*
-```
