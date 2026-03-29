@@ -55,7 +55,10 @@ public class App {
 		case 2:
 
 			try {
-				User user2 = session.get(User.class, 3L);
+				System.out.print("Enter ID to fetch data: ");
+				Long selectId = sc.nextLong();
+				
+				User user2 = session.get(User.class, selectId);
 				if (user2 != null) {
 					System.out.println(user2.getId());
 					System.out.println(user2.getName());
@@ -64,7 +67,7 @@ public class App {
 					System.out.println(user2.getEmail());
 					System.out.println(user2.getPassword());
 				} else {
-					System.out.println("No Founded...!");
+					System.out.println("No Founded...! " + selectId);
 				}
 
 			} catch (Exception e) {
