@@ -1,10 +1,12 @@
 package com.springboot.repository;
 
 import org.hibernate.Session;
+import org.springframework.stereotype.Repository;
 
 import com.springboot.config.HibernetConfig;
 import com.springboot.entities.User;
 
+@Repository
 public class Dboperationimp implements Dboperation{
 
 	@Override
@@ -15,7 +17,7 @@ public class Dboperationimp implements Dboperation{
 				Session  session = HibernetConfig.getSessionFactory().openSession(); 
 			)
 		{
-			user = session.get(User.class, 1L);
+			user = session.get(User.class, id);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
