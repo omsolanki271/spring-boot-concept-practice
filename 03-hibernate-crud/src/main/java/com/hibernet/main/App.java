@@ -10,13 +10,6 @@ import com.hibernet.entity.User;
 
 public class App {
 	public static void main(String[] args) {
-		User user = new User();
-		//user.setId(1);
-		user.setName("om");
-		user.setEmail("om@gmail.com");
-		user.setPassword("123");
-		user.setGender("M");
-		user.setCity("bvd");
 
 		Configuration configuration = new Configuration();
 		configuration.configure("hibernate.cfg.xml");
@@ -25,9 +18,16 @@ public class App {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 
-		
-		// Insert opeation 
-		
+		// Insert opeation
+
+		User user = new User();
+		// user.setId(1);
+		user.setName("om");
+		user.setEmail("om@gmail.com");
+		user.setPassword("123");
+		user.setGender("M");
+		user.setCity("bvd");
+
 		/*
 		 * try { session.save(user); transaction.commit();
 		 * System.out.println("Data inserted...!"); } catch (Exception e) {
@@ -35,22 +35,33 @@ public class App {
 		 * System.out.println("Data not inserted...Due to Some Error!"); }
 		 */
 
-		//select opeartion 
+		// select opetion
 
-		try 
-		{
-			User user2 = session.get(User.class, 1L);
-			System.out.println(user2.getId());
-			System.out.println(user2.getName());
-			System.out.println(user2.getCity());
-			System.out.println(user2.getGender());
-			System.out.println(user2.getEmail());
-			System.out.println(user2.getPassword());			
-			
-		} 
-		catch (Exception e) 
-		{
+		/*
+		 * try { User user2 = session.get(User.class, 3L); if (user2 != null) {
+		 * System.out.println(user2.getId()); System.out.println(user2.getName());
+		 * System.out.println(user2.getCity()); System.out.println(user2.getGender());
+		 * System.out.println(user2.getEmail());
+		 * System.out.println(user2.getPassword()); } else {
+		 * System.out.println("No Founded...!"); }
+		 * 
+		 * } catch (Exception e) { e.printStackTrace(); }
+		 */
+
+		/* update operation */
+
+		try {
+			User user3 = session.get(User.class, 2L);
+			user3.setGender("male");
+			user3.setPassword("1234");
+
+			session.saveOrUpdate(user3);
+			transaction.commit();
+			System.out.println("Data updated...!");
+		} catch (Exception e) {
+			transaction.rollback();
 			e.printStackTrace();
+			System.out.println("Data not updated...Due to Some Error!");
 		}
 
 	}
