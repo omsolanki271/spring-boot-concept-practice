@@ -51,7 +51,7 @@
 			<version>5.6.15.Final</version>
 			<scope>compile</scope>
 		</dependency>
-		
+
 		<!-- Source:
 		https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
 		<dependency>
@@ -61,29 +61,31 @@
 			<scope>compile</scope>
 		</dependency>
 
-	<!-- Source: https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
-<dependency>
-    <groupId>javax.xml.bind</groupId>
-    <artifactId>jaxb-api</artifactId>
-    <version>2.3.1</version>
-    <scope>compile</scope>
-</dependency>
- 
- <!-- Source: https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
-<dependency>
-    <groupId>com.sun.xml.bind</groupId>
-    <artifactId>jaxb-core</artifactId>
-    <version>2.3.0.1</version>
-    <scope>compile</scope>
-</dependency>
+		<!-- Source: https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api -->
+		<dependency>
+			<groupId>javax.xml.bind</groupId>
+			<artifactId>jaxb-api</artifactId>
+			<version>2.3.1</version>
+			<scope>compile</scope>
+		</dependency>
 
-<!-- Source: https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
-<dependency>
-    <groupId>com.sun.xml.bind</groupId>
-    <artifactId>jaxb-impl</artifactId>
-    <version>2.3.1</version>
-    <scope>compile</scope>
-</dependency>
+		<!-- Source:
+		https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-core -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-core</artifactId>
+			<version>2.3.0.1</version>
+			<scope>compile</scope>
+		</dependency>
+
+		<!-- Source:
+		https://mvnrepository.com/artifact/com.sun.xml.bind/jaxb-impl -->
+		<dependency>
+			<groupId>com.sun.xml.bind</groupId>
+			<artifactId>jaxb-impl</artifactId>
+			<version>2.3.1</version>
+			<scope>compile</scope>
+		</dependency>
 
 
 	</dependencies>
