@@ -50,19 +50,32 @@ public class App {
 
 		/* update operation */
 
-		try {
-			User user3 = session.get(User.class, 2L);
-			user3.setGender("male");
-			user3.setPassword("1234");
+		/*
+		 * try { User user3 = session.get(User.class, 2L); user3.setGender("male");
+		 * user3.setPassword("1234");
+		 * 
+		 * session.saveOrUpdate(user3); transaction.commit();
+		 * System.out.println("Data updated...!"); } catch (Exception e) {
+		 * transaction.rollback(); e.printStackTrace();
+		 * System.out.println("Data not updated...Due to Some Error!"); }
+		 */
 
-			session.saveOrUpdate(user3);
+		
+		
+		/* delete operation */
+
+
+		try {
+			User user4 = new User();
+			user4.setId(1L);
+			
+			session.delete(user4);
 			transaction.commit();
-			System.out.println("Data updated...!");
+			System.out.println("Data deleted ...!");
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
-			System.out.println("Data not updated...Due to Some Error!");
+			System.out.println("Data not deleted...Due to Some Error!");
 		}
-
 	}
 }
