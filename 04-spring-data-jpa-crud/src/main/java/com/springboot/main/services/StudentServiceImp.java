@@ -1,6 +1,7 @@
 package com.springboot.main.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -43,6 +44,18 @@ public class StudentServiceImp implements StudentService{
 	}
 
 
+	@Override
+	public Student getOneStudent(long stdid) {
+		Optional<Student> optional = repository.findById(stdid);
+		if(optional.isPresent())
+		{
+			return optional.get();
+		}
+		else
+		{
+			return null;
+		}
+	}
 
 
 }

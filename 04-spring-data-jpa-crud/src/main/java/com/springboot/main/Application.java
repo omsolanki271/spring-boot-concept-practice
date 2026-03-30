@@ -33,16 +33,25 @@ public class Application {
 		
 		/* select operation */
 		
-		List<Student> details = beanservice.getStudentDetails();
-		for(Student mydata : details)
-		{
-			System.out.println("------------------------");
-			System.out.println(mydata.getId());
-			System.out.println(mydata.getName());
-			System.out.println(mydata.getRollno());
-			System.out.println(mydata.getMarks());
-			System.out.println("------------------------");
-		}
+		/*
+		 * List<Student> details = beanservice.getStudentDetails(); for(Student mydata :
+		 * details) { System.out.println("------------------------");
+		 * System.out.println(mydata.getId()); System.out.println(mydata.getName());
+		 * System.out.println(mydata.getRollno());
+		 * System.out.println(mydata.getMarks());
+		 * System.out.println("------------------------"); }
+		 */
+		
+		/* get select operation 2 */
+		
+		Student oneStudent = beanservice.getOneStudent(1L);
+		System.out.println("-------------------------");
+		System.out.println(oneStudent.getId());
+		System.out.println(oneStudent.getName());
+		System.out.println(oneStudent.getRollno());
+		System.out.println(oneStudent.getMarks());
+		System.out.println("-------------------------");
 		
 	}
 }
+
