@@ -18,7 +18,22 @@ public class StudentServiceImp implements StudentService{
 		
 	}
 	
-	
+
+@Override
+	public boolean addStudentDetails(Student std) {
+		boolean status = false;
+		
+		try {
+			repository.save(std);
+			status = true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			status = false;
+		}
+		
+		return status;
+	}
+
 
 
 

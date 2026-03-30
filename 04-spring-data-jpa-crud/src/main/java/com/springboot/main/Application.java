@@ -16,6 +16,19 @@ public class Application {
 		ApplicationContext context =  SpringApplication.run(Application.class, args);
 		StudentService bean = context.getBean(StudentServiceImp.class);
 		bean.test();
+		
+		Student std = new Student();
+		std.setName("om solanki");
+		std.setRollno(2530100);
+		std.setMarks(98);
+		boolean statusDetails = bean.addStudentDetails(std);
+		if(statusDetails)
+		{
+			System.out.println("Inserted successfully.....!");
 		}
-
+		else
+		{
+			System.out.println("Not inserted...");
+		}
+		}
 }
