@@ -1,5 +1,7 @@
 package com.springboot.main.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +21,7 @@ public class StudentServiceImp implements StudentService{
 	}
 	
 
-@Override
+	@Override
 	public boolean addStudentDetails(Student std) {
 		boolean status = false;
 		
@@ -32,6 +34,12 @@ public class StudentServiceImp implements StudentService{
 		}
 		
 		return status;
+	}
+
+
+	@Override
+	public List<Student> getStudentDetails() {
+		return repository.findAll();
 	}
 
 
