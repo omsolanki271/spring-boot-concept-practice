@@ -58,4 +58,18 @@ public class StudentServiceImp implements StudentService{
 	}
 
 
+	@Override
+	public boolean updatestudent(long id, int marks) {
+		boolean status = false;
+		Student student = getOneStudent(id);
+		if(student != null)
+		{
+			student.setMarks(marks);
+			repository.save(student);
+			status = true;
+		}
+		return status;
+	}
+
+
 }

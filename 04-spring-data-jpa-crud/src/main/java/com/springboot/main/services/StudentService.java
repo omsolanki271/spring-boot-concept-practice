@@ -10,5 +10,6 @@ public interface StudentService {
 	public boolean addStudentDetails(Student std);
 	public List<Student> getStudentDetails();
 	public Student getOneStudent(long stdid);
+	public boolean updatestudent(long id , int marks);
 	
 }

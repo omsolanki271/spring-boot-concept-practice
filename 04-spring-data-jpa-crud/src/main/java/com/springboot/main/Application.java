@@ -16,6 +16,9 @@ public class Application {
 	public static void main(String[] args) {
 		ApplicationContext context = SpringApplication.run(Application.class, args);
 		StudentService beanservice = context.getBean(StudentServiceImp.class);
+
+		/* test perpose */
+		
 		beanservice.test();
 
 		/* Insert opration */
@@ -44,13 +47,32 @@ public class Application {
 		
 		/* get select operation 2 */
 		
-		Student oneStudent = beanservice.getOneStudent(1L);
-		System.out.println("-------------------------");
-		System.out.println(oneStudent.getId());
-		System.out.println(oneStudent.getName());
-		System.out.println(oneStudent.getRollno());
-		System.out.println(oneStudent.getMarks());
-		System.out.println("-------------------------");
+		Student oneStudent = beanservice.getOneStudent(4L);
+		if(oneStudent != null)
+		{
+			System.out.println("-------------------------");
+			System.out.println(oneStudent.getId());
+			System.out.println(oneStudent.getName());
+			System.out.println(oneStudent.getRollno());
+			System.out.println(oneStudent.getMarks());
+			System.out.println("-------------------------");
+		}
+		else
+		{
+			System.out.println("Not found.....");
+		}
+
+		/* update operation */
+		
+		boolean updatestudent = beanservice.updatestudent(1L, 91);
+		if(updatestudent)
+		{
+			System.out.println("Student Detail Updated...!");
+		}
+		else 
+		{
+			System.out.println("Not udpate.....");
+		}
 		
 	}
 }
