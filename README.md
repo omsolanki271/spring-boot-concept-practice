@@ -1,14 +1,12 @@
 # spring-boot-concept-practice
 
-A structured Spring Boot practice repository covering core concepts step by step with simple examples and mini practice projects.
+A structured **Spring Boot learning and practice repository** covering important backend concepts step by step with simple examples and mini projects.
 
-This repository is created for learning and revising Spring Boot from basics to advanced topics in a practical way.
+This repository is created to practice, organize, and revise **Spring Boot + Java backend development** concepts in a practical way.
 
 ---
 
-## 📌 Repository Purpose
-
-This repository is used to practice and organize Spring Boot concepts such as:
+## 📌 Concepts Covered
 
 - Spring Boot Basics  
 - Beans  
@@ -19,90 +17,187 @@ This repository is used to practice and organize Spring Boot concepts such as:
 - Dependency Injection  
 - JDBC  
 - Hibernate  
+- Spring Boot + Hibernate  
 - JPA  
-- CRUD  
-- Authentication  
-- REST API  
-
-Each concept is stored in a separate folder with its own code and explanation.
+- Spring Data JPA  
+- RESTful Web Services  
+- CRUD Operations  
+- Repository Layer  
+- Service Layer  
+- MySQL Integration  
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Structure
 
 ```text
 spring-boot-concept-practice/
-│── 01-spring-boot-beans
-│── 01-spring-boot-beans-1
+│── 01-spring-boot-beans/
+│── 01-spring-boot-beans-1/
+│── 02-spring-boot-jdbc-crud/
+│── 03-hibernate-crud/
+│── 03-springboot-hibernate_1/
+│── 03-springboot-hibernate_2/
+│── 04-spring-data-jpa-crud/
+│── 05-spring-boot-Restfull-webservices/
 │── .gitignore
 │── README.md
 ```
 
 ---
 
-## 📚 Current Practice Modules
+## 📚 Practice Modules
 
-### 01) 01-spring-boot-beans
-Basic Spring Boot bean creation project.  
+### `01-spring-boot-beans`
+Basic Spring Boot bean creation project.
 
-**Concepts Covered:**
-- Spring Boot project setup  
-- `@Bean`  
-- Custom bean creation  
-- `CommandLineRunner`  
-- Calling bean method at startup  
+**Concepts:**
+- `@Bean`
+- `CommandLineRunner`
+- Basic bean usage
 
 ---
 
-### 02) 01-spring-boot-beans-1
-A deeper bean practice project demonstrating multiple ways of creating and running beans.  
+### `01-spring-boot-beans-1`
+Bean practice project with multiple bean creation approaches.
 
-**Concepts Covered:**
-- `@Bean`  
-- `@Configuration`  
-- `@Component`  
-- `CommandLineRunner`  
-- Multiple bean objects  
-- Startup execution flow  
+**Concepts:**
+- `@Bean`
+- `@Configuration`
+- `@Component`
+- Multiple bean objects
 
 ---
 
-## 🚀 Learning Approach
-This repository follows a step-by-step learning style:
+### `02-spring-boot-jdbc-crud`
+CRUD project using **Spring Boot + JDBC + MySQL**.
 
-1. Learn one concept  
-2. Create one small project  
-3. Practice code  
-4. Add README for revision  
-5. Move to next concept  
-
-This helps in building strong understanding of Spring Boot with proper project structure.
+**Concepts:**
+- `JdbcTemplate`
+- DAO Layer
+- RowMapper
+- Console CRUD
 
 ---
 
-## 🛠️ Technologies Used
+### `03-hibernate-crud`
+Basic **Hibernate ORM CRUD** project.
+
+**Concepts:**
+- Hibernate setup
+- `hibernate.cfg.xml`
+- `SessionFactory`
+- CRUD operations
+
+---
+
+### `03-springboot-hibernate_1`
+CRUD project using **Spring Boot + Hibernate**.
+
+**Concepts:**
+- Spring Boot + Hibernate integration
+- Entity mapping
+- MySQL CRUD
+
+---
+
+### `03-springboot-hibernate_2`
+Structured **Select Operation** project using Spring Boot + Hibernate.
+
+**Concepts:**
+- Config class
+- Repository Layer
+- `@Repository`
+- Clean Hibernate structure
+
+---
+
+### `04-spring-data-jpa-crud`
+CRUD project using **Spring Boot + Spring Data JPA + MySQL**.
+
+**Concepts:**
+- `@Entity`
+- `JpaRepository`
+- `@Service`
+- Repository + Service Layer
+- CRUD operations
+
+---
+
+### `05-spring-boot-Restfull-webservices`
+REST API learning project using **Spring Boot Web**.
+
+**Concepts:**
+- `@RestController`
+- `@GetMapping`
+- Path-based API access
+- Basic web service response
+- RESTful API basics
+
+---
+
+## 🛠️ Tech Stack
+
 - Java 17  
 - Spring Boot  
+- Spring JDBC  
+- Hibernate ORM  
+- Spring Data JPA  
+- MySQL  
 - Maven  
 - STS / Eclipse  
 - Git & GitHub  
 
 ---
 
-## ▶️ How to Run Any Project
+## ▶️ How to Run
 
-Open terminal inside the required project folder and run:
+Open terminal inside any project folder and run:
 
 ```bash
-# Build project
 mvn clean install
-
-# Run project
 mvn spring-boot:run
 ```
 
-Or run directly from STS / Eclipse:
+Or run directly from **STS / Eclipse**:
 
-```
+```text
 Run As → Spring Boot App
 ```
+
+---
+
+## 🗄️ Database Note
+
+Some projects require MySQL database setup.
+
+Update credentials in:
+
+- `application.properties`
+- `hibernate.cfg.xml`
+
+Example:
+
+```properties
+spring.datasource.url=jdbc:mysql://localhost:3307/your_database_name
+spring.datasource.username=root
+spring.datasource.password=your_password
+```
+
+---
+
+## 🚀 Future Topics
+
+- Validation  
+- Exception Handling  
+- Authentication  
+- Spring Security  
+- Postman Testing  
+- More REST API Projects  
+
+---
+
+## 👨‍💻 Author
+
+**Om Solanki**  
+*MCA Student | Java Backend Learner*
