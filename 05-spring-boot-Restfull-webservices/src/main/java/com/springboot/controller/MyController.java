@@ -1,18 +1,23 @@
 package com.springboot.controller;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.entities.User;
+import com.springboot.services.UserService;
 
 @RestController
 public class MyController {
 
+	@Autowired
+	private UserService service;
+	
 	@PostMapping("/user")
-	public String addUserDetails(@RequestBody User user)
+	public User addUserDetails(@RequestBody User user)
 	{
-		return "index";
+		return service.createUser(user);
 	}
 }
