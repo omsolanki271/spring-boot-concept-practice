@@ -33,4 +33,18 @@ public class UserServiceimp implements UserService{
 		return repository.findById(id);
 	}
 
+	@Override
+	public User updateUserDetail(int id, User updateUser) 
+	{
+		User orElse = repository.findById(id).orElse(updateUser);
+		if(orElse != null)
+		{
+			return repository.save(updateUser);
+		}
+		else
+		{
+			throw new RuntimeException("User not found " + id);
+		}
+
+	}
 }
