@@ -4,7 +4,9 @@ package com.springboot.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,5 +30,22 @@ public class MyController {
 	public List<User> getAllUsers()
 	{
 		return service.getAllUserDetails();
+	}
+	
+	@GetMapping("/user/{id}")
+	public ResponseEntity<User> getoneUser(@PathVariable int id)
+	{
+		//if not fetch data provide null 
+		// this is new way
+		User user = service.getsingleUser(id).orElse(null);
+		if(user != null)
+		{
+			//if find status 200 ok so give value in user
+			return ResponseEntity.ok().body(user);
+		}
+		else 
+		{
+			return ResponseEntity.notFound().build();
+		}
 	}
 }

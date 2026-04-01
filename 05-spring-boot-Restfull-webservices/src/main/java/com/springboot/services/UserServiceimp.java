@@ -1,6 +1,7 @@
 package com.springboot.services;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,6 +25,12 @@ public class UserServiceimp implements UserService{
 	public List<User> getAllUserDetails() {
 		
 		return repository.findAll();
+	}
+
+	@Override
+	public Optional<User> getsingleUser(int id) {
+		
+		return repository.findById(id);
 	}
 
 }
