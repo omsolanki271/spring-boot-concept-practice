@@ -1,8 +1,10 @@
 # spring-boot-concept-practice
 
-A structured **Spring Boot learning and practice repository** covering important backend concepts step by step with simple examples and mini projects.
+A structured **Spring Boot learning and practice repository** covering important backend concepts step by step with simple examples and practice hand-on projects.
 
 This repository is created to practice, organize, and revise **Spring Boot + Java backend development** concepts in a practical way.
+
+Each module is implemented as a separate project with its own code and README for better understanding and revision.
 
 ---
 
@@ -124,15 +126,16 @@ CRUD project using **Spring Boot + Spring Data JPA + MySQL**.
 
 ---
 
-### `05-spring-boot-Restfull-webservices`
+### `05-spring-boot-restful-webservices`
 REST API learning project using **Spring Boot Web**.
 
 **Concepts:**
 - `@RestController`
-- `@GetMapping`
-- Path-based API access
-- Basic web service response
-- RESTful API basics
+- `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`
+- `@RequestBody`
+- `@PathVariable`
+- `ResponseEntity`
+- CRUD APIs
 
 ---
 
