@@ -12,4 +12,6 @@ public interface UserService {
 	public Optional<User> getsingleUser(int id);
 	
 	public User updateUserDetail(int id,User user);
+	
+	public void deleteUserDetail(int id);
 }

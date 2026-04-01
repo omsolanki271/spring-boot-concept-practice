@@ -47,4 +47,10 @@ public class UserServiceimp implements UserService{
 		}
 
 	}
+
+	@Override
+	public void deleteUserDetail(int id) {
+		 repository.deleteById(id);
+		 
+	}
 }
